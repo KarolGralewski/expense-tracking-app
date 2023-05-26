@@ -11,6 +11,7 @@
   "author": "Karol Gralewski",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.22"
   }
