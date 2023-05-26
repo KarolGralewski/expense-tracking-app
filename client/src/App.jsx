@@ -16,8 +16,8 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>{message}</h1>
+    <div className="flex h-screen items-center justify-center bg-slate-800">
+      <h1 className="text-3xl font-bold text-cyan-400">Odpowiedź z serwera: {message}</h1>
     </div>
   );
 }
