@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
+const userRouter = require('./routes/user');
 
 const express = require('express');
 const app = express();
@@ -19,5 +20,6 @@ app.use(cors());
 //routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRouter);
 
 app.listen(port, () => console.log(`Nasłuchiwanie na porcie ${port}`));
