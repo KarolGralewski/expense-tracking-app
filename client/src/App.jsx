@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Route, Routes } from 'react-router';
+import { Route, Routes, Navigate } from 'react-router-dom';
+
 import { Login } from './components/pages/Login';
+import { Home } from './components/pages/Home';
+import { Register } from './components/pages/Register';
 
 function App() {
-  const [message, setMessage] = useState('');
+  const user = localStorage.getItem('token');
 
-  // useEffect(() => {
-  //   axios
-  //     .get('http://localhost:3001') // Make a GET request to the '/api/hello' endpoint
-  //     .then((response) => {
-  //       setMessage(response.data.message); // Update the state with the received message
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
-
-  return <></>;
+  return (
+    <Routes>
+      {user && <Route path="/" exact element={<Home />} />}
+      <Route path="/register" exact element={<Register />} />
+      <Route path="/login" exact element={<Login />} />
+      <Route path="/" element={<Navigate replace to="/login" />} />
+    </Routes>
+  );
 }
-
 export default App;
