@@ -37,7 +37,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form className="mb-4 w-2/3  max-w-lg rounded-md bg-slate-800  px-8 pt-8 shadow-md" onSubmit={handleSubmit}>
+    <form className="mb-4 w-2/3  max-w-lg rounded-md bg-gray-900  px-8 pt-8 shadow-md" onSubmit={handleSubmit}>
       <h1 className="mb-5 text-2xl font-bold">Register</h1>
       <Spacer />
       <InputLabel labelText="First Name" name="firstName" type="text" placeholder="First Name" onChange={handleChange} />

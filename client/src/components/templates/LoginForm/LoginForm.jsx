@@ -31,7 +31,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 w-2/3  max-w-lg  rounded-md bg-slate-800 px-8 pt-8 shadow-md">
+    <form onSubmit={handleSubmit} className="mb-4 w-2/3  max-w-lg  rounded-md bg-gray-900 px-8 pt-8 shadow-md">
       <h1 className="mb-5 text-2xl font-bold">Log in</h1>
       <Spacer />
       <InputLabel labelText="Email" name="email" type="text" placeholder="Email" onChange={handleChange} />

@@ -3,8 +3,12 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { useState, useEffect } from 'react';
 import { Button } from '../atoms/Button/Button';
+import moment from 'moment';
 
 export const Home = () => {
+  const date = moment(); // Assuming you have the date stored in a variable, or you can pass a specific date to moment().
+  const formattedDate = date.format('dddd, D MMMM');
+
   const [data, setData] = useState({
     firstName: '',
     lastName: '',
@@ -19,7 +23,6 @@ export const Home = () => {
     let token = 'temp';
     try {
       token = localStorage.getItem('token');
-      console.log(token);
     } catch {
       console.log('Cannot read token');
     }
@@ -38,15 +41,21 @@ export const Home = () => {
     };
 
     fetchData();
-  });
+  }, []);
 
   return (
-    <div className=" h-screen bg-slate-900 text-white">
+    <div className=" text-whit3 h-screen bg-gray-950 px-5">
       {/* navbar */}
-      <div className="flex justify-center bg-slate-800 px-4 py-6">
-        <div className="flex w-full max-w-screen-2xl justify-between">
-          <h1 className="text-lg font-semibold ">Welcome back, Jack Uan!</h1>
-          <Button text="Log out" onClick={handleLogout} />
+      <div className=" flex items-center justify-center px-4 py-6">
+        <div className="flex w-full max-w-screen-2xl items-center justify-between gap-10">
+          <div>
+            <h1 className="text mb-1 font-semibold text-gray-600">Today is {formattedDate}</h1>
+            <h1 className="text-2xl font-bold text-gray-100">Nice to see you back, {data.firstName}!</h1>
+          </div>
+          <div className="flex gap-10">
+            <Button text="Add Data" />
+            <Button text="Log out" onClick={handleLogout} isSecondary />
+          </div>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ export const InputLabel = ({ labelFor, labelText, name, type, placeholder, onCha
   return (
     <>
       <Label labelText={labelText} for={labelFor} />
-      <input className="focus:shadow-outline w-full  appearance-none rounded  bg-slate-700  px-3 py-3 leading-tight shadow focus:outline-none" onChange={onChange} name={name} type={type} placeholder={placeholder} required></input>
+      <input className="focus:shadow-outline w-full  appearance-none rounded  bg-gray-800  px-3 py-3 leading-tight shadow focus:outline-none" onChange={onChange} name={name} type={type} placeholder={placeholder} required></input>
     </>
   );
 };
