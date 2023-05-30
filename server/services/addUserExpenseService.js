@@ -1,7 +1,6 @@
 const Expense = require('../models/expense');
 const NetBalance = require('../models/netBalance');
 const { User } = require('../models/user');
-const jwt = require('jsonwebtoken');
 
 module.exports = async (req, res) => {
   try {
