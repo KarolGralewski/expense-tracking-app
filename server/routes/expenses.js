@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 
 router.post('/', async (req, res) => {
   try {
+    //TODO: Make middleware out of this
     const token = req.headers.authorization.split(' ')[1];
     if (!token) {
       return res.status(401).json({ message: 'No token provided!' });
@@ -28,7 +29,7 @@ router.post('/', async (req, res) => {
     let updatedNetBalance = amount;
 
     if (lastNetBalance) {
-      updatedNetBalance = parseFloat(lastNetBalance.amount) + parseFloat(amount);
+      updatedNetBalance = parseFloat(lastNetBalance.amount) - parseFloat(amount);
     }
 
     const netBalance = new NetBalance({

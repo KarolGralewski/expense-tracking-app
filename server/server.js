@@ -6,6 +6,7 @@ const dataRouter = require('./routes/data');
 const expenseRoutes = require('./routes/expenses');
 const incomesRoutes = require('./routes/incomes');
 
+// const verifyToken = require('./middlewares/verifyToken');
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -18,6 +19,7 @@ connection();
 //middleware
 app.use(express.json());
 app.use(cors());
+// app.use(verifyToken());
 
 //routes
 app.use('/api/users', userRoutes);
