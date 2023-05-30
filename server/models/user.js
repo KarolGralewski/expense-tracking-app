@@ -8,7 +8,10 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  netBalance: [{ type: mongoose.Schema.Types.ObjectId, ref: 'NetBalance' }],
+  // netBalance: { type: Number, default: 0 },
 });
+
 userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY, {
     expiresIn: `${process.env.TOKENEXPIRATIONTIME}`,

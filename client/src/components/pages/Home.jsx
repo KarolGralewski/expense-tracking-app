@@ -27,6 +27,8 @@ export const Home = () => {
       console.log('Cannot read token');
     }
 
+    console.log(token);
+
     let headers = {
       Authorization: `Bearer ${token}`,
     };
