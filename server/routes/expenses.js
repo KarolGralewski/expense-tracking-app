@@ -39,9 +39,10 @@ router.post('/', async (req, res) => {
 
     const savedNetBalance = await netBalance.save();
 
+    console.log(savedNetBalance);
+
     const user = await User.findOne({ _id: decoded });
 
-    console.log(user);
     user.netBalance.push(savedNetBalance);
     await netBalance.save();
     await user.save();
@@ -61,7 +62,7 @@ router.get('/', async (req, res) => {
     }
     const decoded = jwt.verify(token, process.env.JWTPRIVATEKEY);
 
-    const expenses = await Expense.find({ _id: decoded });
+    const expenses = await Expense.find({ user: decoded });
     res.json(expenses);
   } catch (error) {
     console.error('Error retrieving expenses:', error);

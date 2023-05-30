@@ -19,7 +19,7 @@ connection();
 //middleware
 app.use(express.json());
 app.use(cors());
-// app.use(verifyToken());
+// app.use(verifyToken());`
 
 //routes
 app.use('/api/users', userRoutes);

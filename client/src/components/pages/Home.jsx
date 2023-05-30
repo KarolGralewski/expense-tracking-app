@@ -6,7 +6,7 @@ import { Button } from '../atoms/Button/Button';
 import moment from 'moment';
 
 export const Home = () => {
-  const date = moment(); // Assuming you have the date stored in a variable, or you can pass a specific date to moment().
+  const date = moment();
   const formattedDate = date.format('dddd, D MMMM');
 
   const [data, setData] = useState({

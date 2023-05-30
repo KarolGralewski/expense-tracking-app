@@ -8,8 +8,7 @@ const userSchema = new mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  netBalance: [{ type: mongoose.Schema.Types.ObjectId, ref: 'NetBalance' }],
-  // netBalance: { type: Number, default: 0 },
+  netBalance: [{ amount: Number, date: Date }],
 });
 
 userSchema.methods.generateAuthToken = function () {
