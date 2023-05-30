@@ -6,6 +6,6 @@ const netBalanceSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-const NetBalanceSchema = mongoose.model('NetBalanceHistory', netBalanceSchema);
+const NetBalance = mongoose.model('NetBalance', netBalanceSchema); // Changed model name to 'NetBalance'
 
-module.export = NetBalanceSchema;
+module.exports = NetBalance;

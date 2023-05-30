@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
 
     const savedIncome = await income.save();
     res.status(201).json(savedIncome);
+
     // addIncome(decoded, amount);
   } catch (error) {
     console.error('Error adding income:', error);
