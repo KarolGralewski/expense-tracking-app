@@ -58,7 +58,7 @@ export const Home = () => {
             <h1 className="text-2xl font-bold text-gray-100">Nice to see you back, {data.firstName}!</h1>
           </div>
           <div className="flex gap-10">
-            <label for="my-modal-3" className=" btn-outline btn border border-purple-500 text-gray-300 hover:border-purple-500 hover:bg-purple-500 hover:text-gray-50">
+            <label for="my-modal-5" className=" btn-outline btn border border-purple-500 text-gray-300 hover:border-purple-500 hover:bg-purple-500 hover:text-gray-50">
               Add data
             </label>
 
@@ -76,15 +76,17 @@ export const Home = () => {
           <div className=" flex h-1/4 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
             <div className="text-center text-xl font-semibold text-gray-400">Net Balance</div>
             <div className="flex h-full items-center items-center">
-              <div className="bg-gradient-to-r from-indigo-800 to-pink-500 bg-clip-text text-6xl font-bold text-transparent ">
-                <span className=" text-xl font-bold text-pink-500/20">$</span>250
-              </div>
+              {/* <div className="bg-gradient-to-r from-indigo-800 to-pink-500 bg-clip-text text-6xl font-bold text-transparent ">
+                <span className=" text-xl font-bold text-pink-500/20">$</span>
+                {data.netBalance ? 'No Data' : '<p>sad</p>'}
+              </div> */}
+              <div className="text-6xl font-bold text-gray-800">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div>
             </div>
           </div>
           <div className="  flex h-3/4 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
             <div className="text-center text-xl font-semibold text-gray-400">Spendings</div>
             <div className="flex h-full items-center items-center">
-              <div className="text-center text-xl font-semibold text-gray-300"></div>
+              <div className="text-6xl font-bold text-gray-800">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div>
             </div>
           </div>
         </div>
@@ -92,13 +94,13 @@ export const Home = () => {
           <div className=" flex h-4/6 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
             <div className="text-center text-xl font-semibold text-gray-400">Cashflow</div>
             <div className="flex h-full items-center items-center">
-              <div className="text-center text-xl font-semibold text-gray-300"></div>
+              <div className="text-6xl font-bold text-gray-800">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div>
             </div>
           </div>
           <div className=" flex  h-2/6 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
             <div className="text-center text-xl font-semibold text-gray-400">Incomes</div>
             <div className="flex h-full items-center items-center">
-              <div className="text-center text-xl font-semibold text-gray-300"></div>
+              <div className="text-6xl font-bold text-gray-800">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div>
             </div>
           </div>
         </div>
