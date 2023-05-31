@@ -23,7 +23,7 @@ export const TransactionAmountInput = ({ onChange }) => {
         <input
           type="text"
           placeholder="0.01"
-          className=" input-bordered input w-3/5 border border-gray-800/50 bg-gray-800 text-lg  text-gray-200"
+          className=" input-bordered input w-full border border-gray-800/50 bg-gray-800 text-lg  text-gray-200"
           id="numericInput"
           onKeyPress={(event) => {
             if (!/[0-9]/.test(event.key)) {

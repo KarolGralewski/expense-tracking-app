@@ -33,7 +33,7 @@ export const ModalContent = () => {
 
   return (
     <div className="flex flex-col justify-center">
-      <h1 className="mb-6 text-2xl font-semibold text-gray-300">Add data</h1>
+      <h1 className="mb-6 text-xl font-semibold text-gray-300">Add new transaction</h1>
       <TransactionTypeSelect onChange={handleTransactionChange} />
       {transactionType == 'Income' ? <IncomeTitleInput onChange={handleIncomeTitleChange} /> : <ExpenseCategorySelect onChange={handleExpenseCategoryChange} />}
       <TransactionAmountInput onChange={handleTransactionAmountChange} />
