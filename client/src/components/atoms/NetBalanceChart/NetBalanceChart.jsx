@@ -24,7 +24,7 @@ export const NetBalanceChart = () => {
 
     const fetchData = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 15));
+        // await new Promise((resolve) => setTimeout(resolve, 1000));
 
         const response = await axios.get('http://localhost:8080/api/data', { headers });
         setData(response.data);
@@ -43,11 +43,11 @@ export const NetBalanceChart = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 1000);
+    // const intervalId = setInterval(fetchData, 50);
 
-    return () => {
-      clearInterval(intervalId); // Clean up the interval when the component is unmounted
-    };
+    // return () => {
+    //   clearInterval(intervalId); // Clean up the interval when the component is unmounted
+    // };
   }, []);
 
   if (isLoading) {

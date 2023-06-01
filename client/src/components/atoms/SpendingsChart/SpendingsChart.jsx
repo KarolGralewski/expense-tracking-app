@@ -4,7 +4,7 @@ import { CustomSpendingsTooltip } from '../../molecules/CustomSpendingsTooltip/C
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const colors = ['#7034d5', '#632ebe', '#5729a6', '#4a238e', '#3e1d77', '#32175f', '#251147', '#30185b', '#5d1fc7', '##0c0618'];
+const colors = ['#5d1fc7', '#3e1d77', '#5729a6', '#4a238e', '##4c2a8f', '#30185b', '#482e74', '#7034d5', '#32175f', '#632ebe'];
 
 export const SpendingsChart = () => {
   const [data, setData] = useState([]);
@@ -24,8 +24,6 @@ export const SpendingsChart = () => {
 
     const fetchData = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 10));
-
         const response = await axios.get('http://localhost:8080/api/expenses', { headers });
         setData(response.data);
         setIsLoading(false);
@@ -36,20 +34,12 @@ export const SpendingsChart = () => {
 
     fetchData();
 
-    const intervalId = setInterval(fetchData, 5000);
+    // const intervalId = setInterval(fetchData, 50);
 
-    return () => {
-      clearInterval(intervalId); // Clean up the interval when the component is unmounted
-    };
+    // return () => {
+    //   clearInterval(intervalId); // Clean up the interval when the component is unmounted
+    // };
   }, []);
-
-  if (isLoading) {
-    return <div className="text-6xl font-bold text-gray-800/40">Loading data...</div>;
-  }
-
-  if (data === null) {
-    return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
-  }
 
   const categoryAmounts = data.reduce((result, item) => {
     const { category, amount } = item;
@@ -66,36 +56,38 @@ export const SpendingsChart = () => {
     amount,
   }));
 
+  if (isLoading) {
+    return <div className="text-6xl font-bold text-gray-800/40">Loading data...</div>;
+  }
+
   if (data === null) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
   }
 
   return (
-    <div className="flex justify-center">
-      <PieChart width={600} height={400} data={categoryAmountsArray}>
-        <Pie stroke="none" data={categoryAmountsArray} cx={190} cy={190} innerRadius={100} outerRadius={170} dataKey="amount">
-          {categoryAmountsArray.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-          ))}
-        </Pie>
+    <PieChart width={600} height={400} data={categoryAmountsArray}>
+      <Pie stroke="none" data={categoryAmountsArray} cx={190} cy={190} innerRadius={100} outerRadius={170} dataKey="amount">
+        {categoryAmountsArray.map((entry, index) => (
+          <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+        ))}
+      </Pie>
 
-        <Legend
-          cy={100}
-          layout="vertical"
-          iconType="circle"
-          iconSize={15}
-          verticalAlign="middle"
-          align="right"
-          formatter={(value, entry) => {
-            const { payload } = entry;
-            return <span className={'text-md font-semibold text-gray-500'}>{payload.category}</span>;
-          }}
-        />
+      <Legend
+        cy={100}
+        layout="vertical"
+        iconType="circle"
+        iconSize={15}
+        verticalAlign="middle"
+        align="right"
+        formatter={(value, entry) => {
+          const { payload } = entry;
+          return <span className={'text-md font-semibold text-gray-500'}>{payload.category}</span>;
+        }}
+      />
 
-        <Tooltip content={<CustomSpendingsTooltip />} />
+      <Tooltip content={<CustomSpendingsTooltip />} />
 
-        <Line type="monotone" data={data} dataKey="category" stroke="#c49696" />
-      </PieChart>
-    </div>
+      <Line type="monotone" data={data} dataKey="category" stroke="#c49696" />
+    </PieChart>
   );
 };
