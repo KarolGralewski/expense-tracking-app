@@ -11,7 +11,6 @@ export const ExpenseCategorySelect = ({ onChange }) => {
         <option className=" bg-gray-800 ">Food and Dining</option>
         <option className=" bg-gray-800 ">Health and Medical</option>
         <option className=" bg-gray-800 ">Housing and Rent</option>
-        <option className=" bg-gray-800 ">Entertainment</option>
         <option className=" bg-gray-800 ">Shopping</option>
         <option className=" bg-gray-800 ">Transportation</option>
         <option className=" bg-gray-800 ">Travel</option>
