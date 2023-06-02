@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+import { animateNumberIncrease } from '../../helpers/animateNumberIncrease';
 import axios from 'axios';
 
 export const NetBalanceText = () => {
@@ -6,16 +8,7 @@ export const NetBalanceText = () => {
   const [netBalance, setNetBalance] = useState(null);
 
   useEffect(() => {
-    let token = 'temp';
-    try {
-      token = localStorage.getItem('token');
-    } catch {
-      console.log('Cannot read token');
-    }
-
-    let headers = {
-      Authorization: `Bearer ${token}`,
-    };
+    const headers = addTokenToRequestHeader();
 
     const fetchData = async () => {
       try {
@@ -46,5 +39,8 @@ export const NetBalanceText = () => {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
   }
 
-  return <>{netBalance}</>;
+  const netBalanceElement = document.getElementById('netBalance');
+  animateNumberIncrease(netBalanceElement, 0, netBalance, 1550);
+
+  return <div id="netBalance">{netBalance}</div>;
 };

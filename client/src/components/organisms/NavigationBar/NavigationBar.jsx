@@ -51,7 +51,7 @@ export const NavigationBar = () => {
           <h1 className="text-2xl font-bold text-gray-100">Nice to see you back, {data.firstName}!</h1>
         </div>
         <div className="flex gap-10">
-          <label for="my-modal-5" className=" btn-outline btn border-2 border-violet-900/80 bg-gray-950 text-sm font-bold text-gray-300  hover:border-violet-600  hover:bg-violet-600 hover:text-gray-100">
+          <label for="my-modal-5" className=" btn-outline btn border-2 border-violet-900/80 bg-gray-950 text-sm font-bold text-violet-200  hover:border-violet-600  hover:bg-violet-600 hover:text-gray-100">
             New transaction
           </label>
 

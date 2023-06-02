@@ -1,6 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, Tooltip, Legend, Line, Cell } from 'recharts';
 import { CustomSpendingsTooltip } from '../../molecules/CustomSpendingsTooltip/CustomSpendingsTooltip';
+import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -11,16 +12,7 @@ export const SpendingsChart = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    let token = 'temp';
-    try {
-      token = localStorage.getItem('token');
-    } catch {
-      console.log('Cannot read token');
-    }
-
-    let headers = {
-      Authorization: `Bearer ${token}`,
-    };
+    const headers = addTokenToRequestHeader();
 
     const fetchData = async () => {
       try {
@@ -33,12 +25,6 @@ export const SpendingsChart = () => {
     };
 
     fetchData();
-
-    // const intervalId = setInterval(fetchData, 50);
-
-    // return () => {
-    //   clearInterval(intervalId); // Clean up the interval when the component is unmounted
-    // };
   }, []);
 
   const categoryAmounts = data.reduce((result, item) => {

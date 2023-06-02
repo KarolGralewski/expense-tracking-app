@@ -1,10 +1,9 @@
 import React from 'react';
-import axios from 'axios';
 import { SpendingsChart } from '../atoms/SpendingsChart/SpendingsChart';
 import { NetBalanceChart } from '../atoms/NetBalanceChart/NetBalanceChart';
-import { TransactionContainer } from '../organisms/TransactionContainer/TransactionContainer';
 import { NavigationBar } from '../organisms/NavigationBar/NavigationBar';
 import { NetBalanceText } from '../atoms/NetBalanceText/NetBalanceText';
+import { TransactionList } from '../organisms/TransactionList/TransactionList';
 
 export const Home = () => {
   return (
@@ -16,7 +15,7 @@ export const Home = () => {
           <div className=" flex h-1/4 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
             <div className="text-center text-xl font-semibold text-gray-400">Net Balance</div>
             <div className="flex h-full items-center items-center">
-              <div id="netBalance" className=" flex bg-clip-text text-6xl font-bold text-violet-600">
+              <div className=" flex bg-clip-text text-6xl font-bold text-violet-600">
                 <span className=" mt-7 text-xl font-bold text-violet-600">$</span>
                 <NetBalanceText />
               </div>
@@ -36,27 +35,7 @@ export const Home = () => {
               <NetBalanceChart />
             </div>
           </div>
-          <div className=" flex  h-2/6 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
-            <div className="overflow-scroll text-center text-xl font-semibold text-gray-400">Transactions</div>
-            <div className="h-full w-full overflow-scroll px-10">
-              <div className="mt-4 flex w-full items-center gap-4">
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-
-                {/* <div className="text-6xl font-bold text-gray-800/40">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div> */}
-              </div>
-              <div className="mt-4 flex w-full items-center gap-4">
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-              </div>
-              <div className="mt-4 flex w-full items-center gap-4">
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-                <TransactionContainer title="Pay day" date="24 March 2023" amount={21} isIncome />
-
-                {/* <div className="text-6xl font-bold text-gray-800/40">{data.netBalance ? 'No Data' : '<p>sad</p>'}</div> */}
-              </div>
-            </div>
-          </div>
+          <TransactionList />
         </div>
       </div>
     </div>

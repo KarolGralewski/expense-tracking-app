@@ -3,6 +3,8 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { format, parseISO } from 'date-fns';
 import { CustomNetbalanceTooltip } from '../../molecules/CustomNetbalanceTooltip/CustomNetbalanceTooltip';
 import { useEffect, useState } from 'react';
+import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+
 import axios from 'axios';
 
 export const NetBalanceChart = () => {
@@ -11,16 +13,7 @@ export const NetBalanceChart = () => {
   const [transformedData, setTransformedData] = useState(null);
 
   useEffect(() => {
-    let token = 'temp';
-    try {
-      token = localStorage.getItem('token');
-    } catch {
-      console.log('Cannot read token');
-    }
-
-    let headers = {
-      Authorization: `Bearer ${token}`,
-    };
+    const headers = addTokenToRequestHeader();
 
     const fetchData = async () => {
       try {
@@ -42,12 +35,6 @@ export const NetBalanceChart = () => {
     };
 
     fetchData();
-
-    // const intervalId = setInterval(fetchData, 50);
-
-    // return () => {
-    //   clearInterval(intervalId); // Clean up the interval when the component is unmounted
-    // };
   }, []);
 
   if (isLoading) {
@@ -71,7 +58,7 @@ export const NetBalanceChart = () => {
         <Area type="monotone" dataKey="netBalance" stroke="#7c3aed" strokeWidth={4} fillOpacity={1} fill="url(#colorUv)" />
 
         <XAxis
-          dy={10}
+          dy={4}
           dataKey="date"
           axisLine={false}
           tickLine={false}
@@ -86,6 +73,7 @@ export const NetBalanceChart = () => {
         />
 
         <YAxis
+          dx={2}
           dataKey="netBalance"
           axisLine={false}
           tickLine={false}
