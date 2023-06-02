@@ -37,7 +37,7 @@ export const ModalContent = () => {
       <TransactionTypeSelect onChange={handleTransactionChange} />
       {transactionType == 'Income' ? <IncomeTitleInput onChange={handleIncomeTitleChange} /> : <ExpenseCategorySelect onChange={handleExpenseCategoryChange} />}
       <TransactionAmountInput onChange={handleTransactionAmountChange} />
-      <label for="my-modal-5" className=" btn-outline btn mb-4 border border-purple-500 text-gray-300 hover:border-purple-500 hover:bg-purple-500 hover:text-gray-50" onClick={handleConfirm}>
+      <label for="my-modal-5" className=" btn-outline btn mb-4 border-2 border-violet-500 text-gray-300 hover:border-violet-500 hover:bg-violet-500 hover:text-gray-50" onClick={handleConfirm}>
         Add Transaction
       </label>
     </div>

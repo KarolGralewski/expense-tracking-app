@@ -22,7 +22,7 @@ export const TransactionAmountInput = ({ onChange }) => {
       <label className="input-group text-gray-300">
         <input
           type="text"
-          placeholder="0.01"
+          placeholder="10"
           className=" input-bordered input w-full border border-gray-800/50 bg-gray-800 text-lg  text-gray-200"
           id="numericInput"
           onKeyPress={(event) => {

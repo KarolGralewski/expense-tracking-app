@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Transaction } from '../Transaction/Transaction';
-import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+import { addTokenToRequestHeader } from '../../../helpers/addTokenToRequestHeader';
 import axios from 'axios';
 
 let endpoints = ['http://localhost:8080/api/expenses', 'http://localhost:8080/api/incomes'];

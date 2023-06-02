@@ -3,7 +3,7 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { format, parseISO } from 'date-fns';
 import { CustomNetbalanceTooltip } from '../../molecules/CustomNetbalanceTooltip/CustomNetbalanceTooltip';
 import { useEffect, useState } from 'react';
-import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+import { addTokenToRequestHeader } from '../../../helpers/addTokenToRequestHeader';
 
 import axios from 'axios';
 

@@ -12,6 +12,7 @@
     "axios": "^1.4.0",
     "daisyui": "^2.52.0",
     "date-fns": "^2.30.0",
+    "framer-motion": "^10.12.16",
     "jwt-decode": "^3.1.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

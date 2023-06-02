@@ -1,7 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, Tooltip, Legend, Line, Cell } from 'recharts';
 import { CustomSpendingsTooltip } from '../../molecules/CustomSpendingsTooltip/CustomSpendingsTooltip';
-import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
+import { addTokenToRequestHeader } from './../../../helpers/addTokenToRequestHeader';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 

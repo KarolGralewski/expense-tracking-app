@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { addTokenToRequestHeader } from '../../helpers/addTokenToRequestHeader';
-import { animateNumberIncrease } from '../../helpers/animateNumberIncrease';
+import { addTokenToRequestHeader } from '../../../helpers/addTokenToRequestHeader';
+import { animateNumberIncrease } from '../../../helpers/animateNumberIncrease';
 import axios from 'axios';
 
 export const NetBalanceText = () => {
@@ -40,7 +40,14 @@ export const NetBalanceText = () => {
   }
 
   const netBalanceElement = document.getElementById('netBalance');
-  animateNumberIncrease(netBalanceElement, 0, netBalance, 1550);
+  animateNumberIncrease(netBalanceElement, 0, netBalance, 1800);
 
-  return <div id="netBalance">{netBalance}</div>;
+  return (
+    <>
+      <div id="netBalance">{netBalance}</div>
+      {/* <p>
+        <div>↓</div>
+      </p> */}
+    </>
+  );
 };
