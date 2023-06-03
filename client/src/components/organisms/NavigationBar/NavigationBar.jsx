@@ -2,6 +2,7 @@ import React from 'react';
 import { ProfileDropdown } from '../ProfileDropdown.jsx/ProfileDropdown';
 import { Modal } from '../Modal/Modal';
 import { ModalContent } from '../ModalContent/ModalContent';
+import { addTokenToRequestHeader } from '../../../helpers/addTokenToRequestHeader';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -18,18 +19,7 @@ export const NavigationBar = () => {
   };
 
   useEffect(() => {
-    let token = 'temp';
-    try {
-      token = localStorage.getItem('token');
-    } catch {
-      console.log('Cannot read token');
-    }
-
-    console.log(token);
-
-    let headers = {
-      Authorization: `Bearer ${token}`,
-    };
+    const headers = addTokenToRequestHeader();
 
     const fetchData = async () => {
       try {

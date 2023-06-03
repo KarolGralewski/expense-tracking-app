@@ -7,7 +7,9 @@ export const ExpenseCategorySelect = ({ onChange }) => {
         <span className="label-text text-gray-300">Pick the category of the expense</span>
       </label>
       <select className="select mb-5 w-full max-w-xs bg-gray-800 text-lg text-gray-200" onChange={onChange}>
-        <option className=" bg-gray-800 ">Entertainment</option>
+        <option default className=" bg-gray-800 ">
+          Entertainment
+        </option>
         <option className=" bg-gray-800 ">Food and Dining</option>
         <option className=" bg-gray-800 ">Health and Medical</option>
         <option className=" bg-gray-800 ">Housing and Rent</option>

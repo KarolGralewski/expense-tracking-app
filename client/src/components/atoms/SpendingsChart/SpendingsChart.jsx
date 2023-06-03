@@ -48,32 +48,32 @@ export const SpendingsChart = () => {
 
   if (data === null) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
+  } else {
+    return (
+      <PieChart width={600} height={400} data={categoryAmountsArray}>
+        <Pie stroke="none" data={categoryAmountsArray} cx={190} cy={190} innerRadius={100} outerRadius={170} dataKey="amount">
+          {categoryAmountsArray.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+          ))}
+        </Pie>
+
+        <Legend
+          cy={100}
+          layout="vertical"
+          iconType="circle"
+          iconSize={15}
+          verticalAlign="middle"
+          align="right"
+          formatter={(value, entry) => {
+            const { payload } = entry;
+            return <span className={'text-md font-semibold text-gray-500'}>{payload.category}</span>;
+          }}
+        />
+
+        <Tooltip content={<CustomSpendingsTooltip />} />
+
+        <Line type="monotone" data={data} dataKey="category" stroke="#c49696" />
+      </PieChart>
+    );
   }
-
-  return (
-    <PieChart width={600} height={400} data={categoryAmountsArray}>
-      <Pie stroke="none" data={categoryAmountsArray} cx={190} cy={190} innerRadius={100} outerRadius={170} dataKey="amount">
-        {categoryAmountsArray.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-        ))}
-      </Pie>
-
-      <Legend
-        cy={100}
-        layout="vertical"
-        iconType="circle"
-        iconSize={15}
-        verticalAlign="middle"
-        align="right"
-        formatter={(value, entry) => {
-          const { payload } = entry;
-          return <span className={'text-md font-semibold text-gray-500'}>{payload.category}</span>;
-        }}
-      />
-
-      <Tooltip content={<CustomSpendingsTooltip />} />
-
-      <Line type="monotone" data={data} dataKey="category" stroke="#c49696" />
-    </PieChart>
-  );
 };
