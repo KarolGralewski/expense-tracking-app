@@ -7,10 +7,10 @@ import { Button } from '../../atoms/Button/Button';
 
 import { InputLabel } from '../../molecules/InputLabel/InputLabel';
 import { Text } from '../../atoms/Text/Text';
+import { Alert } from '../../organisms/Alert/Alert';
 
 export const LoginForm = () => {
-  console;
-
+  const [invalidCreditentials, setInvalidCreditentials] = useState();
   const [data, setData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const handleChange = ({ currentTarget: input }) => {
@@ -27,6 +27,10 @@ export const LoginForm = () => {
       if (error.response && error.response.status >= 400 && error.response.status <= 500) {
         setError(error.response.data.message);
       }
+      if (error.response.status == 401) {
+        setInvalidCreditentials(true);
+        console.log(invalidCreditentials);
+      }
     }
   };
 
@@ -34,9 +38,11 @@ export const LoginForm = () => {
     <form onSubmit={handleSubmit} className="mb-4 w-2/3  max-w-lg  rounded-xl bg-gray-800 px-8 pt-8 shadow-md">
       <h1 className="mb-5 text-2xl font-bold">Log in</h1>
       <Spacer />
-      <InputLabel labelText="Email" name="email" type="text" placeholder="Email" onChange={handleChange} />
+      <InputLabel labelText="Email" name="email" type="email" placeholder="Email" onChange={handleChange} />
       <Spacer />
       <InputLabel labelText="Password" name="password" type="password" placeholder="Password" onChange={handleChange} />
+
+      {invalidCreditentials && <Alert />}
 
       <div className="mt-10 flex flex-col items-center justify-between">
         <Button isPrimary type="submit" text="Log In" />

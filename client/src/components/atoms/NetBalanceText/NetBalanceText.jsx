@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { addTokenToRequestHeader } from '../../../helpers/addTokenToRequestHeader';
 import { animateNumberIncrease } from '../../../helpers/animateNumberIncrease';
 import axios from 'axios';
 
 export const NetBalanceText = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [netBalance, setNetBalance] = useState(null);
+  const netBalanceElementRef = useRef(null);
 
   useEffect(() => {
     const headers = addTokenToRequestHeader();
@@ -14,18 +16,13 @@ export const NetBalanceText = () => {
       try {
         const response = await axios.get('http://localhost:8080/api/data', { headers });
         setData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-
-    // const intervalId = setInterval(fetchData, 50);
-
-    // return () => {
-    //   clearInterval(intervalId); // Clean up the interval when the component is unmounted
-    // };
   }, []);
 
   useEffect(() => {
@@ -35,19 +32,32 @@ export const NetBalanceText = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (netBalanceElementRef.current && netBalance !== null) {
+      animateNumberIncrease(netBalanceElementRef.current, 0, netBalance, 1800);
+    }
+  }, [netBalance]);
+
+  if (isLoading) {
+    return (
+      <div className="text-6xl font-bold text-gray-800/40">
+        <span className="loading-spinner loading text-primary"></span>
+        Loading data...
+      </div>
+    );
+  }
+
   if (data === null) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
   }
 
-  const netBalanceElement = document.getElementById('netBalance');
-  animateNumberIncrease(netBalanceElement, 0, netBalance, 1800);
-
   return (
     <>
-      <div id="netBalance">{netBalance}</div>
-      {/* <p>
-        <div>↓</div>
-      </p> */}
+      <span className="mt-7 text-xl font-bold text-violet-700">$</span>
+
+      <div ref={netBalanceElementRef} id="netBalance">
+        {netBalance}
+      </div>
     </>
   );
 };

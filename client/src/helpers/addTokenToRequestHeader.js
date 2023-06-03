@@ -10,7 +10,5 @@ export const addTokenToRequestHeader = () => {
     Authorization: `Bearer ${token}`,
   };
 
-  console.log(headers.Authorization);
-
   return headers;
 };

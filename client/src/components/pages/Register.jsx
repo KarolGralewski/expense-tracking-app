@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { RegisterForm } from '../templates/LoginForm/RegisterForm';
 import { Heading } from '../atoms/Heading/Heading';
 import { Subheading } from '../atoms/Subheading/Subheading';
+import { RegisterForm } from '../templates/RegisterForm.jsx/RegisterForm';
 
 export const Register = () => {
   return (

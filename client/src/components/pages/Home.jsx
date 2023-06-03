@@ -16,7 +16,6 @@ export const Home = () => {
             <div className="text-center text-xl font-semibold text-gray-400">Net Balance</div>
             <div className="flex h-full items-center items-center">
               <div className=" flex bg-clip-text text-6xl font-bold text-violet-600">
-                <span className=" mt-7 text-xl font-bold text-violet-600">$</span>
                 <NetBalanceText />
               </div>
             </div>
