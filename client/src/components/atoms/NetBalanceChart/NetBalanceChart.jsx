@@ -41,7 +41,7 @@ export const NetBalanceChart = () => {
     return <div className="text-6xl font-bold text-gray-800/40">Loading data...</div>;
   }
 
-  if (data === null) {
+  if (data.netBalance.length === 0) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
   }
 

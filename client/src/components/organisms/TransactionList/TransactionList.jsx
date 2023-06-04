@@ -51,6 +51,17 @@ export const TransactionList = () => {
     return merged.sort((a, b) => new Date(b.date) - new Date(a.date));
   }, [incomesData, expensesData]);
 
+  if (incomesData.length === 0 && expensesData.length === 0) {
+    return (
+      <div className="flex h-2/6 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
+        <div className="overflow-scroll text-center text-xl font-semibold text-gray-400">Transactions</div>
+        <div className="flex h-full w-full items-center justify-center overflow-scroll px-10">
+          <div className="text-6xl font-bold text-gray-800/40">No data</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-2/6 flex-col items-center justify-start rounded-xl bg-gray-900 py-5">
       <div className="overflow-scroll text-center text-xl font-semibold text-gray-400">Transactions</div>

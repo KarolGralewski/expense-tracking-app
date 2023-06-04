@@ -46,7 +46,7 @@ export const SpendingsChart = () => {
     return <div className="text-6xl font-bold text-gray-800/40">Loading data...</div>;
   }
 
-  if (data === null) {
+  if (data.length === 0) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
   } else {
     return (

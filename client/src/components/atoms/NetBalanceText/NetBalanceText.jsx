@@ -7,6 +7,7 @@ export const NetBalanceText = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [netBalance, setNetBalance] = useState(null);
+
   const netBalanceElementRef = useRef(null);
 
   useEffect(() => {
@@ -15,8 +16,8 @@ export const NetBalanceText = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/data', { headers });
-        setData(response.data);
         setIsLoading(false);
+        setData(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -47,17 +48,17 @@ export const NetBalanceText = () => {
     );
   }
 
-  if (data === null) {
+  if (data.netBalance.length === 0) {
     return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
+  } else {
+    return (
+      <>
+        <span className="mt-7 text-xl font-bold text-violet-700">$</span>
+
+        <div ref={netBalanceElementRef} id="netBalance">
+          {netBalance}
+        </div>
+      </>
+    );
   }
-
-  return (
-    <>
-      <span className="mt-7 text-xl font-bold text-violet-700">$</span>
-
-      <div ref={netBalanceElementRef} id="netBalance">
-        {netBalance}
-      </div>
-    </>
-  );
 };
