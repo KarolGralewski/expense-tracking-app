@@ -1,11 +1,11 @@
 # Expense Tracking App
 
 
-Current state of the app: 
+### Current state of the app
 
 https://github.com/KarolGralewski/expense-tracking-app/assets/63659958/263e0af1-c825-40d1-8183-60ff567476b4
 
-### To run the app: 
+### Installation
 
 1. Go to both the /client and /server and start two servers in seperate terminals. Run 
 
@@ -19,9 +19,8 @@ npm start
 npm run dev
 ```
 
-2. Start mongodb server locally
-3. That's it! The app should be up and running
+2. Start mongodb server locally <br><br>
+ That's it! The app should be up and running
 
 
-
-##### Build using Express, MongoDB, NodeJS and React 
+### Build using Express, MongoDB, NodeJS and React 
