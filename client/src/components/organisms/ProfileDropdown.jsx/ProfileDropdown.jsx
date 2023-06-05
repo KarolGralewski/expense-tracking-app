@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const ProfileDropdown = ({ onClickLogout, onClickSettings }) => {
   return (
@@ -8,9 +9,9 @@ export const ProfileDropdown = ({ onClickLogout, onClickSettings }) => {
       </label>
       <ul tabIndex={0} className="dropdown-content menu rounded-box menu-compact mt-3 w-52  bg-gray-900 p-2   shadow-2xl">
         <li>
-          <a className="text-lg" onClick={onClickSettings}>
+          <Link to={'/settings'} className="text-lg">
             Settings
-          </a>
+          </Link>
         </li>
         <li>
           <a className="text-lg" onClick={onClickLogout}>

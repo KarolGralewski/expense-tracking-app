@@ -5,7 +5,7 @@ import { addTokenToRequestHeader } from './../../../helpers/addTokenToRequestHea
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const colors = ['#5d1fc7', '#3e1d77', '#5729a6', '#4a238e', '##4c2a8f', '#30185b', '#482e74', '#7034d5', '#32175f', '#632ebe'];
+const colors = ['#5d1fc7', '#3e1d77', '#5729a6', '#4a238e', '#4c2a8f', '#30185b', '#482e74', '#7034d5', '#32175f', '#632ebe'];
 
 export const SpendingsChart = () => {
   const [data, setData] = useState([]);
@@ -43,11 +43,11 @@ export const SpendingsChart = () => {
   }));
 
   if (isLoading) {
-    return <div className="text-6xl font-bold text-gray-800/40">Loading data...</div>;
+    return <div className="text-6xl font-bold text-gray-800/10">Loading data...</div>;
   }
 
   if (data.length === 0) {
-    return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
+    return <div className="text-6xl font-bold text-violet-800/20">No data</div>;
   } else {
     return (
       <PieChart width={600} height={400} data={categoryAmountsArray}>
@@ -66,7 +66,7 @@ export const SpendingsChart = () => {
           align="right"
           formatter={(value, entry) => {
             const { payload } = entry;
-            return <span className={'text-md font-semibold text-gray-500'}>{payload.category}</span>;
+            return <span className={'text-md font-bold text-gray-700'}>{payload.category}</span>;
           }}
         />
 

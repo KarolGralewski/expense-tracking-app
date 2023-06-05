@@ -11,7 +11,7 @@ export const Transaction = ({ isIncome, amount, date, title }) => {
         <div className="text-2xl font-bold text-violet-200">{title}</div>
       </div>
       <div className="flex items-end text-4xl font-bold text-violet-200">
-        <span className=" mb-2 mr-5 rounded-md bg-violet-700 px-3  text-base font-extrabold text-violet-200">{sign}</span>
+        <span className=" mb-2 mr-5 rounded-md bg-violet-700 px-2  text-base font-extrabold text-violet-200">{sign}</span>
         <span className=" mb-1 mr-1 text-sm text-violet-300">$</span>
         {Math.abs(amount)}
       </div>

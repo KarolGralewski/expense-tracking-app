@@ -39,7 +39,7 @@ export const NavigationBar = () => {
       <div className="flex w-full items-end justify-between gap-2">
         <div>
           <AnimatedText text={`Today is ${formattedDate}`} delay={0.7} />
-          <AnimatedText text={`Nice to see you back, ${data.firstName}!`} isBig />
+          <AnimatedText text={`Nice to see you back, ${data.firstName}`} isBig />
         </div>
 
         <div className="flex gap-10">

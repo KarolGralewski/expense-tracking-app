@@ -42,7 +42,7 @@ export const NetBalanceChart = () => {
   }
 
   if (data.netBalance.length === 0) {
-    return <div className="text-6xl font-bold text-gray-800/40">No data</div>;
+    return <div className="text-6xl font-bold text-violet-800/20">No data</div>;
   }
 
   return (
