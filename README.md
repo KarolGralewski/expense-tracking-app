@@ -1,9 +1,27 @@
-# expense-tracking-app
-Expense tracking app. Build using Express, MongoDB and React (Work in progress)
+# Expense Tracking App
+
 
 Current state of the app: 
 
-https://github.com/KarolGralewski/expense-tracking-app/assets/63659958/7b12ea6b-78eb-4e15-9d18-917155627567
+https://github.com/KarolGralewski/expense-tracking-app/assets/63659958/263e0af1-c825-40d1-8183-60ff567476b4
+
+### To run the app: 
+
+1. Go to both the /client and /server and start two servers in seperate terminals. Run 
+
+  *a) for usage purposes:* 
+
+```
+npm start
+```
+  *b) for development purposes:*
+   ```
+npm run dev
+```
+
+2. Start mongodb server locally
+3. That's it! The app should be up and running
 
 
 
+##### Build using Express, MongoDB, NodeJS and React 
