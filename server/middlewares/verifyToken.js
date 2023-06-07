@@ -18,7 +18,7 @@ const verifyToken = function (req, res, next) {
     req.decoded = decoded;
     next();
   } catch {
-    return res.status(503).json({ message: 'Authorization failed' });
+    return res.status(401).json({ message: 'Authorization failed' });
   }
 };
 

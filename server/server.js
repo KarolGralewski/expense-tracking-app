@@ -8,8 +8,8 @@ const incomesRoutes = require('./routes/incomes');
 
 // const verifyToken = require('./middlewares/verifyToken');
 const express = require('express');
-const app = express();
 const cors = require('cors');
+const app = express();
 const port = process.env.PORT || 8080;
 
 //database

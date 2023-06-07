@@ -1,13 +1,13 @@
 const router = require('express').Router();
-const verifyTokenMiddleware = require('./../middlewares/verifyToken');
+const verifyToken = require('./../middlewares/verifyToken');
 const addUserExpenseService = require('../services/addUserExpenseService');
 const getUserExpensesService = require('./../services/getUserExpensesService');
 
-router.post('/', verifyTokenMiddleware, async (req, res) => {
+router.post('/', verifyToken, async (req, res) => {
   await addUserExpenseService(req, res);
 });
 
-router.get('/', verifyTokenMiddleware, async (req, res) => {
+router.get('/', verifyToken, async (req, res) => {
   await getUserExpensesService(req, res);
 });
 
