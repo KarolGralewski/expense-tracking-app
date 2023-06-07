@@ -10,20 +10,13 @@ https://github.com/KarolGralewski/expense-tracking-app/assets/63659958/d356cf20-
 
 ### Installation
 
-1. Go to both the /client and /server and start two servers in seperate terminals. Run 
-
-  *a) for usage purposes:* 
+Go to root directory and start docker compose with:
 
 ```
-npm start
-```
-  *b) for development purposes:*
-   ```
-npm run dev
+docker compose up
 ```
 
-2. Start mongodb server locally <br><br>
- That's it! The app should be up and running
+That's it! The app should be up and running
 
 
 ### Build using Express, MongoDB, NodeJS and React 
