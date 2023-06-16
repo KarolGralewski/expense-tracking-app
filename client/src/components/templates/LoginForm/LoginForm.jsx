@@ -6,13 +6,12 @@ import { Spacer } from '../../atoms/Spacer/Spacer';
 import { Button } from '../../atoms/Button/Button';
 
 import { InputLabel } from '../../molecules/InputLabel/InputLabel';
-import { Text } from '../../atoms/Text/Text';
 import { Alert } from '../../organisms/Alert/Alert';
 
 export const LoginForm = () => {
-  const [invalidCreditentials, setInvalidCreditentials] = useState();
   const [data, setData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
   };
@@ -28,7 +27,6 @@ export const LoginForm = () => {
         setError(error.response.data.message);
       }
       if (error.response.status == 401) {
-        setInvalidCreditentials(true);
         console.log(invalidCreditentials);
       }
     }
@@ -42,7 +40,7 @@ export const LoginForm = () => {
       <Spacer />
       <InputLabel labelText="Password" name="password" type="password" placeholder="Password" onChange={handleChange} />
 
-      {invalidCreditentials && <Alert />}
+      {error && <Alert message={error} />}
 
       <div className="mt-10 flex flex-col items-center justify-between">
         <Button isPrimary type="submit" text="Log In" />

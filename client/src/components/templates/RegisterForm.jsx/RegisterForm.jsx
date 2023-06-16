@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { InputLabel } from '../../molecules/InputLabel/InputLabel';
 import { Spacer } from '../../atoms/Spacer/Spacer';
 import { Button } from '../../atoms/Button/Button';
+import { Alert } from '../../organisms/Alert/Alert';
 
 export const RegisterForm = () => {
   const [data, setData] = useState({
@@ -52,6 +53,8 @@ export const RegisterForm = () => {
       <InputLabel labelText="Password" name="password" type="password" placeholder="Password" onChange={handleChange} />
 
       <Spacer />
+
+      {error && <Alert message={error} />}
 
       <div className="mt-10 flex flex-col items-center justify-between">
         <Button isPrimary type="submit" text="Sign In" />

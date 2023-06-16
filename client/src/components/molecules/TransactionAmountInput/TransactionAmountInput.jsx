@@ -1,19 +1,6 @@
 import React from 'react';
 
 export const TransactionAmountInput = ({ onChange }) => {
-  function isNumeric(event) {
-    const keyCode = event.keyCode || event.which;
-    const keyValue = String.fromCharCode(keyCode);
-
-    // Allow numeric keys, backspace, delete, and decimal point
-    const numericRegex = /[0-9]|\.|Backspace|Delete/;
-
-    if (!numericRegex.test(keyValue)) {
-      event.preventDefault();
-      return false;
-    }
-  }
-
   return (
     <div className=" form-control mb-10">
       <label className="label ">

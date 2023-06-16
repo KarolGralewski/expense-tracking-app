@@ -27,6 +27,7 @@ export const NavigationBar = () => {
         const response = await axios.get('http://localhost:8080/api/data', { headers });
         setData(response.data);
       } catch (error) {
+        handleLogout();
         console.log(error);
       }
     };
